@@ -1,6 +1,7 @@
-package ModeloDeConta;
+package Usuario;
 
 import BancoBlueCon.Blue;
+import ModeloDeConta.ModeloDeConta;
 
 public class Usuario {
     private ModeloDeConta modelo;
