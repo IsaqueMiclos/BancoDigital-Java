@@ -10,7 +10,9 @@ public class ModeloDeConta {
 
     private double saldo = 0.0;
 
-    public static int id = 100;
+    public static int idStatico = 100;
+
+    public int id = ModeloDeConta.idStatico + 1;
 
     public ModeloDeConta(){
 
@@ -21,6 +23,7 @@ public class ModeloDeConta {
         this.senhaDaConta = senhaDaConta;
         this.cpf = cpf;
         this.email = email;
+        ModeloDeConta.idStatico += 1;
     }
 
     public String getEmail() {
