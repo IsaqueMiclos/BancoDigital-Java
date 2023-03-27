@@ -25,7 +25,12 @@ public class Usuario {
 
         char tipoDeLogin = entrada.nextLine().charAt(0);
 
-        if (tipoDeLogin == 'L') {
+        while (tipoDeLogin != 'L' && tipoDeLogin != 'R' && tipoDeLogin != 'l' && tipoDeLogin != 'r'){
+            System.out.println("[ERRO] VERIFIQUE AS INFORMAÇÕES!");
+            tipoDeLogin = entrada.nextLine().charAt(0);
+        }
+
+        if (tipoDeLogin == 'L' || tipoDeLogin == 'l') {
             System.out.println("Bem-vindo de volta!");
             System.out.println("------ LOGIN --------");
             System.out.println("Email: ");
@@ -49,9 +54,9 @@ public class Usuario {
                     System.out.println("bem-vindo de volta ");
                 }
             }
+        } else {
+            System.out.println("Olá Seja bem-vindo novo usuário!");
 
-
-        } else if (tipoDeLogin == 'R') {
             System.out.println("nome Completo:");
             String nome = entrada.nextLine();
             while (nome == null || nome == " " || nome.length() < 16) {
@@ -78,7 +83,7 @@ public class Usuario {
 
             System.out.println("cpf:");
             String cpf = entrada.nextLine();
-            while (cpf == null || cpf == " " || cpf.length() < 11 || cpf.length() > 11) {
+            while (cpf == null || cpf == " " || cpf.length() < 11 || cpf.length() > 12) {
                 System.out.println("[ERRO] Cpf vazio ou faltando informações");
                 System.out.println("Digite novamente");
                 cpf = entrada.nextLine();
@@ -87,10 +92,6 @@ public class Usuario {
             System.out.println("Seja bem-vindo " + nome + " ao seu banco Blue!");
 
             banco.criarConta(nome,cpf,senha,email);
-        }
-        else {
-            System.out.println("[ERRO] VERIFIQUE AS INFORMAÇÕES!");
-            System.out.println(tipoDeLogin);
         }
     }
 }

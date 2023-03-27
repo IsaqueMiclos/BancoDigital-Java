@@ -26,9 +26,6 @@ public class Blue {
     }
 
     public ModeloDeConta criarConta(String nome, String cpf, String senha, String email) {
-        if (nome == null || cpf == null || senha == null || email == null) {
-            return new ModeloDeConta(null,null,null,null);
-        }
         Blue.contas = adicionaContas(Blue.contas,new ModeloDeConta(nome,cpf,senha,email));
         return new ModeloDeConta(nome, cpf,senha,email);
     }
