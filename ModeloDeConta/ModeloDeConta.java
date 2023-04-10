@@ -12,7 +12,7 @@ public class ModeloDeConta {
 
     public static int idStatico = 100;
 
-    public int id = ModeloDeConta.idStatico + 1;
+    private int id = ModeloDeConta.idStatico + 1;
 
     public ModeloDeConta(){
 
@@ -24,6 +24,10 @@ public class ModeloDeConta {
         this.cpf = cpf;
         this.email = email;
         ModeloDeConta.idStatico += 1;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getEmail() {
