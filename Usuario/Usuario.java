@@ -90,8 +90,8 @@ public class Usuario {
                 break;
             }
         }
-        System.out.println("bem-vindo de volta " + contaDoLogado.getNome());
-
+        System.out.println("Bem-vindo de volta " + contaDoLogado.getNome());
+        this.dentroDoApp(contaDoLogado);
     }
 
     private void registrar () {
@@ -182,5 +182,30 @@ public class Usuario {
         System.out.println("Seja bem-vindo " + nome + " ao seu banco Blue!");
 
         banco.criarConta(nome,cpf,senha,email);
+    }
+
+    private void dentroDoApp(ModeloDeConta conta) {
+        System.out.println("Olá " + conta.getNome() + " O que deseja fazer");
+        System.out.println("Escolha entre pagar, depositar e ver saldo");
+        String respostaDaPergunta = entrada.nextLine();
+        boolean trava = false;
+
+        while (!trava) {
+            if (respostaDaPergunta.equals("depositar")) {
+                trava = true;
+                banco.deposito(conta.getId());
+            }
+            else if (respostaDaPergunta.equals("pagar")) {
+                trava = true;
+                banco.pagamento(conta.getId());
+            }
+            else if (respostaDaPergunta.equals("ver saldo")) {
+                trava = true;
+                banco.imprimeSaldo(conta.getId());
+            }
+            else {
+                System.out.println("[ERRO] Tente novamente, escolha entre depositar, pagar e ver saldo");
+            }
+        }
     }
 }
